@@ -10,19 +10,19 @@ const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: Http
     new TranslateHttpLoader(http, './i18n/', '.json');
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideHttpClient(),
-    provideTranslateService({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: httpLoaderFactory,
-            deps: [HttpClient],
-        },
-        useDefaultLang: true,
-        defaultLanguage: 'en',
-    }),
-  ]
+    providers: [
+        provideBrowserGlobalErrorListeners(),
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes),
+        provideHttpClient(),
+        provideTranslateService({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpLoaderFactory,
+                deps: [HttpClient],
+            },
+            useDefaultLang: true,
+            defaultLanguage: 'en',
+        }),
+    ]
 };
